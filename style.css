@@ -66,7 +66,12 @@ body {
     transform: translateY(-10px); transition: all 0.3s ease-in-out;
 }
 
-.lang-dropdown:hover .lang-menu { visibility: visible; opacity: 1; transform: translateY(0); }
+.lang-menu.show-lang {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .lang-menu a {
     display: block; color: white; padding: 12px 20px;
     text-decoration: none; font-size: 14px;
