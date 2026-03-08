@@ -1,7 +1,7 @@
 :root {
-    --primary: #D42E12;
-    --accent: #FFA502;
-    --secondary: #2F3542;
+    --pri: #D42E12;
+    --acc: #FFA502;
+    --sec: #2F3542;
     --bg: #F1F2F6;
     --text: #1B1B15;
 }
@@ -13,13 +13,13 @@
 }
 
 body {
-    font-family: sans-serif;
-    background-color: var(--bg);
+    font-family: "Roboto";
+    background-color: var(--bg)
 }
 
 .navbar {
-    background-color: var(--secondary);
-    height: 80px;
+    background-color: var(--pri);
+    height: 9vh;
     display: flex;
     align-items: center;
     position: sticky;
@@ -30,7 +30,7 @@ body {
 
 .nav-container {
     width: 100%;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -43,7 +43,7 @@ body {
 }
 
 .nav-links li {
-    margin-left: 30px;
+    margin-left: 2vw;
 }
 
 .nav-links a {
@@ -54,22 +54,29 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: var(--acc);
 }
 
 .hamburger {
     display: none;
     cursor: pointer;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.5vh;
 }
 
 .hamburger span {
     display: block;
-    width: 25px;
-    height: 3px;
+    width: 2vw;
+    height: 0.35vh;
     background-color: white;
     transition: 0.3s;
+}
+
+.navbar-logo-text {
+    font-family: "Raleway";
+    font-weight: 700;
+    height: 75%;
+    color: white;
 }
 
 /* RESPONSIVE NAVBAR */
@@ -83,7 +90,7 @@ body {
         right: -100%; /* hidden by default */
         top: 80px;
         flex-direction: column;
-        background-color: var(--secondary);
+        background-color: var(--sec);
         width: 70%;
         height: 100vh;
         text-align: center;
