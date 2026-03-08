@@ -10,7 +10,7 @@
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: var(--bg);
     color: var(--text);
     overflow-x: hidden;
@@ -19,277 +19,121 @@ body {
 /* --- Navigation --- */
 #navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    top: 0; width: 100%; z-index: 1000;
     transition: background 0.4s ease;
     padding: 10px 0;
 }
 
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Vertically centered */
-    padding: 0 5%;
-    height: 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 5%; height: 60px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: white;
-}
-
-#logo-img { height: 50px; width: auto; }
-#logo-text { 
-    font-size: 40px; /* 80% of image height */
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-.nav-options {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.nav-item-wrapper, .nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    cursor: pointer;
-}
-
-.nav-icon {
-    width: 28px; 
-    height: 28px;
-    margin-bottom: 2px;
-    filter: brightness(0) invert(1); /* Keeps icons white on dark bg */
-}
-
-.lang-select {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-}
-
-.nav-item span { font-size: 10px; font-weight: bold; }
-
-/* Dynamic scroll background */
 .nav-scrolled {
     background-color: var(--primary) !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-/* --- Dropdown Menu --- */
-/* --- Updated Dropdown Menu Container --- */
-.menu-overlay {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 80vh;
-    background-color: var(--secondary);
-    padding-top: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    overflow-y: auto;
-    
-    /* NEW: Changed from display:none to visibility/opacity for animations */
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.4s ease-in-out;
-    pointer-events: none; /* Prevents clicking when hidden */
+/* Logo & Text (Text is 80% of Image Height) */
+.logo { display: flex; align-items: center; gap: 12px; color: white; }
+#logo-img { height: 50px; width: auto; }
+#logo-text { font-size: 40px; font-weight: 800; letter-spacing: -1px; }
+
+.nav-options { display: flex; align-items: center; gap: 25px; }
+
+.nav-item {
+    display: flex; flex-direction: column; align-items: center;
+    color: white; cursor: pointer;
 }
 
-/* When the menu is active */
-.menu-open .menu-overlay {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+.nav-icon {
+    width: 28px; height: 28px; margin-bottom: 2px;
+    filter: brightness(0) invert(1);
 }
 
-/* --- The Items & Animations --- */
-.menu-item {
-    padding: 20px 8%;
+.nav-item span { font-size: 10px; font-weight: bold; }
+
+/* Language Dropdown */
+.lang-dropdown { position: relative; cursor: pointer; }
+.lang-trigger { display: flex; flex-direction: column; align-items: center; color: white; }
+.lang-trigger span { font-size: 11px; font-weight: bold; margin-top: 2px; }
+
+.lang-menu {
+    position: absolute; top: 110%; right: 0;
+    background-color: var(--secondary); min-width: 160px;
+    border-radius: 8px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    overflow: hidden; visibility: hidden; opacity: 0;
+    transform: translateY(-10px); transition: all 0.3s ease-in-out;
+}
+
+.lang-dropdown:hover .lang-menu { visibility: visible; opacity: 1; transform: translateY(0); }
+.lang-menu a {
+    display: block; color: white; padding: 12px 20px;
+    text-decoration: none; font-size: 14px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.lang-menu a:hover { background-color: var(--primary); }
+
+/* --- Dropdown Menu & Cascade --- */
+.menu-overlay {
+    position: absolute; top: 100%; left: 0; width: 100%; height: 80vh;
+    background-color: var(--secondary); visibility: hidden; opacity: 0;
+    transform: translateY(-10px); transition: all 0.4s ease-in-out;
+    pointer-events: none;
+}
+
+.menu-open .menu-overlay { visibility: visible; opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+.menu-list { list-style: none; padding: 20px 8%; }
+.menu-item {
+    padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
     transition: transform 0.4s ease, opacity 0.4s ease;
-    
-    /* Default state: slightly dropped and invisible */
-    opacity: 0;
-    transform: translateY(20px); 
+    opacity: 0; transform: translateY(20px);
 }
 
-/* Cascading DOWN (Opening) */
-.menu-open .menu-item {
-    opacity: 1;
-    transform: translateY(0);
-}
+.menu-item a { color: white; text-decoration: none; font-size: 1.5rem; }
 
-/* Staggered Delays for Opening (Downwards) */
+/* Cascade Opening */
+.menu-open .menu-item { opacity: 1; transform: translateY(0); }
 .menu-open .menu-item:nth-child(1) { transition-delay: 0.1s; }
 .menu-open .menu-item:nth-child(2) { transition-delay: 0.15s; }
 .menu-open .menu-item:nth-child(3) { transition-delay: 0.2s; }
 .menu-open .menu-item:nth-child(4) { transition-delay: 0.25s; }
-.menu-open .menu-item:nth-child(5) { transition-delay: 
 
-/* --- Refined Menu Exit Logic (Cascade Up) --- */
-/* (Updated from previous CSS to ensure the main menu also reverses) */
-
-#navbar:not(.menu-open) .menu-overlay {
-    transition-delay: 0.4s; /* Wait for items to finish cascading up before hiding container */
-}
-
-/* Ensure the cascade-up logic matches your item count */
+/* Cascade Closing (Reverse) */
+#navbar:not(.menu-open) .menu-overlay { transition-delay: 0.4s; }
 #navbar:not(.menu-open) .menu-item:nth-child(1) { transition-delay: 0.3s; }
 #navbar:not(.menu-open) .menu-item:nth-child(2) { transition-delay: 0.2s; }
-#navbar:not(.menu-open) .menu-item:nth-child(3) { transition-delay: 0.15s; }
-#navbar:not(.menu-open) .menu-item:nth-child(4) { transition-delay: 0.1s; }
-#navbar:not(.menu-open) .menu-item:nth-child(5) { transition-delay: 0.05s; }
+#navbar:not(.menu-open) .menu-item:nth-child(3) { transition-delay: 0.1s; }
+#navbar:not(.menu-open) .menu-item:nth-child(4) { transition-delay: 0.05s; }
 
-/* --- Custom Language Dropdown --- */
-.lang-dropdown {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-}
+/* Nested Menu */
+.nested-header { display: flex; justify-content: space-between; color: white; font-size: 1.5rem; cursor: pointer; }
+.nested-list { display: none; list-style: none; padding: 15px 0 0 20px; }
+.nested-list a { font-size: 1.1rem; color: var(--accent); text-decoration: none; }
 
-.lang-trigger {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-}
-
-.lang-trigger span {
-    font-size: 11px;
-    font-weight: bold;
-    margin-top: 2px;
-}
-
-/* The hidden menu */
-.lang-menu {
-    position: absolute;
-    top: 110%; /* Sits just below the trigger */
-    right: 0;
-    background-color: var(--secondary);
-    min-width: 160px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    overflow: hidden;
-    
-    /* Animation setup */
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease-in-out;
-    z-index: 1100;
-}
-
-/* Show on hover or when parent has active class */
-.lang-dropdown:hover .lang-menu,
-.lang-dropdown:focus-within .lang-menu {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.lang-menu a {
-    display: block;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-size: 14px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    transition: background 0.2s;
-}
-
-.lang-menu a:last-child { border-bottom: none; }
-
-.lang-menu a:hover {
-    background-color: var(--primary);
-    color: white;
-}
-
-.nested-header {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.nested-list {
-    display: none;
-    list-style: none;
-    padding: 15px 0 0 20px;
-}
-
-.nested-list a { font-size: 1.1rem; color: var(--accent); }
-
-/* --- Hero Banner --- */
+/* --- Hero & Cards --- */
 .hero-banner {
-    height: 60vh;
+    height: 60vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; color: white;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                 url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
 }
 
-.hero-content h1 {
-    font-size: clamp(2.5rem, 10vw, 5rem);
-    margin: 0;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-}
+.hero-content h1 { font-size: clamp(2.5rem, 10vw, 5rem); margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 
-/* --- Quick Options Cards --- */
 .quick-options {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 0 5% 50px 5%;
-    margin-top: -60px; /* Overlaps hero */
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 30px; padding: 0 5% 50px 5%; margin-top: -60px;
 }
 
 .card {
-    background: white;
-    border-radius: 15px;
-    text-decoration: none;
-    flex: 1;
-    min-width: 280px;
-    max-width: 360px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    border: 3px solid transparent;
+    background: white; border-radius: 15px; text-decoration: none;
+    flex: 1; min-width: 280px; max-width: 360px;
+    overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease; border: 3px solid transparent;
 }
 
-.card:hover {
-    transform: translateY(-12px);
-    border-color: var(--accent); /* Hover highlight */
-}
-
-.card:active { transform: scale(0.97); }
-
+.card:hover { transform: translateY(-12px); border-color: var(--accent); }
 .card img { width: 100%; height: 200px; object-fit: cover; }
-
-.card-text {
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--secondary);
-}
+.card-text { padding: 20px; text-align: center; font-weight: bold; font-size: 1.2rem; color: var(--secondary); }
