@@ -1,34 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stridercorp</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <img src="https://mrt-badges.joulev.dev/NS67"/>
-            <span class="navbar-logo-text">stridercorp</span>
-        </a>
-
-        <ul class="nav-links" id="nav-menu">
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="https://github.com/stridercorp/stridercorp.github.io/">GitHub</a></li>
-            </ul>
-
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-</nav>
-
 <body>
-    <script src="script.js"></script>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://mrt-badges.joulev.dev/NS67">
+                <span>Stridercorp</span>
+            </div>
+            <div class="nav-options">
+                <div class="nav-item">
+                    <div class="icon">🌐</div>
+                    <span>EN</span>
+                </div>
+                <div class="nav-item" onclick="toggleMenu()">
+                    <div class="icon">☰</div>
+                    <span>Menu</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="menuDropdown" class="menu-overlay">
+            <ul class="menu-list">
+                <li class="has-nested">
+                    <button onclick="toggleNested()">Plan Your Journey ▾</button>
+                    <ul id="nestedMenu" class="nested-list">
+                        <li><a href="#">Schedules</a></li>
+                        <li><a href="#">Route Map</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Service Updates</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>Travel Smarter.</h1>
+            <p>Your city, connected by us.</p>
+        </div>
+    </header>
+
+    <section class="quick-options">
+        <div class="card">
+            <img src="https://via.placeholder.com/150x100" alt="Option 1">
+            <div class="card-text">Buy Tickets</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/150x100" alt="Option 2">
+            <div class="card-text">Real-time Map</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/150x100" alt="Option 3">
+            <div class="card-text">Fare Finder</div>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
 </body>
+</html>
