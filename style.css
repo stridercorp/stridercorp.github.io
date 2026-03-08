@@ -138,15 +138,87 @@ body {
 .menu-open .menu-item:nth-child(2) { transition-delay: 0.15s; }
 .menu-open .menu-item:nth-child(3) { transition-delay: 0.2s; }
 .menu-open .menu-item:nth-child(4) { transition-delay: 0.25s; }
-.menu-open .menu-item:nth-child(5) { transition-delay: 0.3s; }
+.menu-open .menu-item:nth-child(5) { transition-delay: 
 
-/* Cascading UP (Closing) */
-/* When .menu-open is REMOVED, these delays trigger the exit in reverse */
-#navbar:not(.menu-open) .menu-item:nth-child(1) { transition-delay: 0.25s; }
+/* --- Refined Menu Exit Logic (Cascade Up) --- */
+/* (Updated from previous CSS to ensure the main menu also reverses) */
+
+#navbar:not(.menu-open) .menu-overlay {
+    transition-delay: 0.4s; /* Wait for items to finish cascading up before hiding container */
+}
+
+/* Ensure the cascade-up logic matches your item count */
+#navbar:not(.menu-open) .menu-item:nth-child(1) { transition-delay: 0.3s; }
 #navbar:not(.menu-open) .menu-item:nth-child(2) { transition-delay: 0.2s; }
 #navbar:not(.menu-open) .menu-item:nth-child(3) { transition-delay: 0.15s; }
 #navbar:not(.menu-open) .menu-item:nth-child(4) { transition-delay: 0.1s; }
 #navbar:not(.menu-open) .menu-item:nth-child(5) { transition-delay: 0.05s; }
+
+/* --- Custom Language Dropdown --- */
+.lang-dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lang-trigger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.lang-trigger span {
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+/* The hidden menu */
+.lang-menu {
+    position: absolute;
+    top: 110%; /* Sits just below the trigger */
+    right: 0;
+    background-color: var(--secondary);
+    min-width: 160px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    overflow: hidden;
+    
+    /* Animation setup */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+    z-index: 1100;
+}
+
+/* Show on hover or when parent has active class */
+.lang-dropdown:hover .lang-menu,
+.lang-dropdown:focus-within .lang-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lang-menu a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.2s;
+}
+
+.lang-menu a:last-child { border-bottom: none; }
+
+.lang-menu a:hover {
+    background-color: var(--primary);
+    color: white;
+}
 
 .nested-header {
     display: flex;
