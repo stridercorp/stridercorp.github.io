@@ -5,6 +5,28 @@ function toggleMenu() {
     nav.classList.toggle('menu-open');
 }
 
+function toggleLang(event) {
+    // Prevent the click from bubbling up to the window listener
+    event.stopPropagation();
+    const langMenu = document.getElementById('langMenu');
+    langMenu.classList.toggle('show-lang');
+}
+
+// Close language menu if user clicks anywhere else on the page
+window.onclick = function(event) {
+    const langMenu = document.getElementById('langMenu');
+    // If the menu is open and the click wasn't inside the dropdown
+    if (langMenu.classList.contains('show-lang')) {
+        langMenu.classList.remove('show-lang');
+    }
+    
+    // Optional: Close main menu if clicking outside too
+    const nav = document.getElementById('navbar');
+    if (nav.classList.contains('menu-open') && !event.target.closest('#navbar')) {
+        nav.classList.remove('menu-open');
+    }
+};
+
 // Toggle the Nested List inside the menu
 function toggleNested() {
     const nested = document.getElementById('nestedMenu');
