@@ -1,86 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Stridercorp</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    
-    <body>
-        <nav id="navbar">
-            <div class="nav-container">
-                <div class="logo">
-                    <img src="https://via.placeholder.com/50" alt="Logo" id="logo-img">
-                    <span id="logo-text">METROLINK</span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrolink | Public Transport</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50" alt="Logo" id="logo-img">
+                <span id="logo-text">METROLINK</span>
+            </div>
+          
+            <div class="nav-options">
+                <div class="lang-dropdown">
+                    <div class="lang-trigger">
+                        <img src="https://cdn-icons-png.flaticon.com/512/484/484631.png" class="nav-icon" alt="Lang">
+                        <span>English</span>
+                    </div>
+                    <div class="lang-menu">
+                        <a href="index.html">English</a>
+                        <a href="index_zh_s.html">简体中文</a>
+                        <a href="index_zh_t.html">繁體中文</a>
+                        <a href="index_ja.html">日本語</a>
+                        <a href="index_ms.html">Bahasa Melayu</a>
+                    </div>
                 </div>
                 
-                <div class="nav-options">
-                    
-                    <div class="lang-dropdown">
-                        <div class="lang-trigger">
-                        <img src="https://cdn-icons-png.flaticon.com/512/484/484631.png" class="nav-icon" alt="Lang">
-                        <span>English</span> </div>
-                        <div class="lang-menu">
-                            <a href="index.html">English</a>
-                            <a href="index_zh_s.html">简体中文</a>
-                            <a href="index_zh_t.html">繁體中文</a>
-                            <a href="index_ja.html">日本語</a>
-                            <a href="index_ms.html">Bahasa Melayu</a>
-                        </div>
-                    </div>
-                    
-                    <div class="nav-item" onclick="toggleMenu()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/7711/7711102.png" class="nav-icon" alt="Menu">
-                        <span>MENU</span>
-                    </div>
+                <div class="nav-item" onclick="toggleMenu()">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7711/7711102.png" class="nav-icon" alt="Menu">
+                    <span>MENU</span>
                 </div>
             </div>
-            
-            <div id="menuDropdown" class="menu-overlay">
-                <ul class="menu-list">
-                    <li class="menu-item">
-                        <div class="nested-header" onclick="toggleNested()">
-                            <span>Plan Your Journey</span>
-                            <span id="arrow">▼</span>
-                        </div>
-                        <ul id="nestedMenu" class="nested-list">
-                            <li><a href="#">Schedules</a></li>
-                            <li><a href="#">Route Map</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item"><a href="#">Service Updates</a></li>
-                    <li class="menu-item"><a href="#">Fares & Mobile App</a></li>
-                    <li class="menu-item"><a href="#">Help Center</a></li>
-                </ul>
-            </div>
-        </nav>
-        
-        <header class="hero-banner">
-            <div class="hero-content">
-                <h1>Travel Smarter.</h1>
-                <p>Your city, connected by us.</p>
-            </div>
-        </header>
-        
-        <section class="quick-options">
-            <a href="#" class="card">
-                <img src="https://via.placeholder.com/350x200" alt="Option 1">
-                <div class="card-text">Buy Tickets</div>
-            </a>
-            <a href="#" class="card">
-                <img src="https://via.placeholder.com/350x200" alt="Option 2">
-                <div class="card-text">Real-time Map</div>
-            </a>
-            <a href="#" class="card">
-                <img src="https://via.placeholder.com/350x200" alt="Option 3">
-                <div class="card-text">Fare Finder</div>
-            </a>
-        </section>
-        
-        <script src="index.js"></script>
-    </body>
+        </div>
+   
+        <div id="menuDropdown" class="menu-overlay">
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <div class="nested-header" onclick="toggleNested()">
+                        <span>Plan Your Journey</span>
+                        <span id="arrow">▼</span>
+                    </div>
+                    <ul id="nestedMenu" class="nested-list">
+                        <li><a href="#">Schedules</a></li>
+                        <li><a href="#">Route Map</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="#">Service Updates</a></li>
+                <li class="menu-item"><a href="#">Fares & Mobile App</a></li>
+                <li class="menu-item"><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>Travel Smarter.</h1>
+            <p>Your city, connected by us.</p>
+        </div>
+    </header>
+    
+    <section class="quick-options">
+        <a href="#" class="card">
+            <img src="https://via.placeholder.com/350x200" alt="Tickets">
+            <div class="card-text">Buy Tickets</div>
+        </a>
+        <a href="#" class="card">
+            <img src="https://via.placeholder.com/350x200" alt="Map">
+            <div class="card-text">Real-time Map</div>
+        </a>
+        <a href="#" class="card">
+            <img src="https://via.placeholder.com/350x200" alt="Fares">
+            <div class="card-text">Fare Finder</div>
+        </a>
+    </section>
+    
+    <script src="index.js"></script>
+</body>
 </html>
