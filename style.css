@@ -32,7 +32,7 @@ body {
 #nav-logo-text {
     font-family: "Raleway";
     font-weight: 700;
-    font-size: 80%;
+    /* font-size: 80%; */
     letter-spacing: -1px;
 }
 
@@ -70,6 +70,24 @@ body {
     position: relative;
 }
 
+.nav-item span {
+    font-size: 10px;
+    font-weight: bold; 
+}
+
+.nav-content { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    color: white;
+}
+
+.nav-content span {
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
 .nav-icon {
     width: 28px;
     height: 28px;
@@ -77,24 +95,7 @@ body {
     filter: brightness(0) invert(1);
 }
 
-.nav-item span {
-    font-size: 10px;
-    font-weight: bold; }
-
 /* Language Menu Dropdown */
-.lang-trigger { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    color: white;
-}
-
-.lang-trigger span {
-    font-size: 11px;
-    font-weight: bold;
-    margin-top: 2px;
-}
-
 .lang-menu {
     position: absolute;
     top: 110%;
