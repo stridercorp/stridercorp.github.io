@@ -211,7 +211,7 @@ body {
     text-align: center; 
     color: white;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('https://www.sgtrains.com/img/trains/c151a/c151a-exterior.jpg') center/cover no-repeat;
+                var(--banner-url) center/cover no-repeat;
 }
 
 .hero-content h1 {
