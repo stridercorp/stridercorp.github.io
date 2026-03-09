@@ -45,8 +45,11 @@ body {
 }
 
 .nav-container {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0 5%; height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 3vh;
 }
 
 .nav-scrolled {
@@ -62,7 +65,7 @@ body {
 
 .nav-item {
     display: flex; 
-    flex-direction: column; 
+    flex-direction: row; 
     align-items: center;
     color: white; 
     cursor: pointer;
