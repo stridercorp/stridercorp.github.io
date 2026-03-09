@@ -59,17 +59,15 @@ body {
 
 .nav-options {
     display: flex;
+    flex-direction: row;
     align-items: center; 
     gap: 25px;
 }
 
 .nav-item {
     display: flex; 
-    flex-direction: row; 
     align-items: center;
-    color: white; 
     cursor: pointer;
-    gap: 25px;
     position: relative;
 }
 
