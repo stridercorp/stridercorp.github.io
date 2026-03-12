@@ -72,7 +72,7 @@ body {
     cursor: pointer;
     position: relative;
     background-color: transparent;
-    gap: 2vw;
+    gap: 6vw;
 }
 
 .nav-item span {
@@ -82,7 +82,10 @@ body {
 
 .nav-item:hover {
     background-color: var(--pri);
-    
+}
+
+.nav-item:active {
+    background-color: var(--pri);
 }
 
 .nav-content { 
