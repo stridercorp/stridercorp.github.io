@@ -64,7 +64,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center; 
-    gap: 25px;
 }
 
 .nav-item {
@@ -72,12 +71,16 @@ body {
     align-items: center;
     cursor: pointer;
     position: relative;
+    padding: 0vw 4vw 0vw 4vw;
 }
 
 .nav-item span {
     font-size: 10px;
     font-weight: bold; 
 }
+
+.nav-item a:hover {
+    background-color: var(--pri); }
 
 .nav-content { 
     display: flex; 
