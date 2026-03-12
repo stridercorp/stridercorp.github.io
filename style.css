@@ -71,7 +71,8 @@ body {
     align-items: center;
     cursor: pointer;
     position: relative;
-    padding: 0vw 4vw 0vw 4vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
 .nav-item span {
@@ -79,7 +80,7 @@ body {
     font-weight: bold; 
 }
 
-.nav-item a:hover {
+.nav-item:hover {
     background-color: var(--pri); }
 
 .nav-content { 
