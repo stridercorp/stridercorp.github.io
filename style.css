@@ -64,6 +64,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center; 
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
 .nav-item {
@@ -71,8 +73,6 @@ body {
     align-items: center;
     cursor: pointer;
     position: relative;
-    padding-left: 2vw;
-    padding-right: 2vw;
 }
 
 .nav-item span {
